@@ -585,42 +585,92 @@ p {
 
 .faq {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(40px, 6.7vw, 96px);
   padding-bottom: clamp(96px, 11.1vw, 160px);
   padding-top: var(--pad);
 }
 
-.faq .section-label,
-.faq__list {
-  width: min(100%, 1200px);
+.faq .section-label {
+  width: min(33.33vw, 400px);
+  flex: 0 0 min(33.33vw, 400px);
+  margin-bottom: 0;
 }
 
 .faq__list {
   display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
   flex-direction: column;
-  gap: 8px;
 }
 
-.faq button {
+.faq__question {
   display: flex;
   width: 100%;
+  min-height: 73px;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  border: 0;
+  gap: 16px;
   border-bottom: 1px solid var(--line);
   padding: 24px 0;
   color: var(--white);
-  background: transparent;
-  font: 700 16px/1.8 var(--sans);
+  cursor: pointer;
+  font: 400 18px/1.6 var(--sans);
   text-align: left;
+  word-break: break-word;
 }
 
-.faq span {
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question::marker {
+  content: "";
+}
+
+.faq__icon {
+  position: relative;
   flex: 0 0 auto;
-  font-size: 24px;
-  font-weight: 400;
+  width: 24px;
+  height: 24px;
+}
+
+.faq__icon::before,
+.faq__icon::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 1px;
+  background: currentcolor;
+  content: "";
+  transform: translate(-50%, -50%);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.faq__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq__item[open] .faq__icon::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.faq__answer {
+  padding: 16px 48px 16px 0;
+  color: var(--white);
+  font: 400 16px/1.6 var(--sans);
+  word-break: break-word;
+}
+
+.faq__answer p {
+  margin: 0;
+}
+
+.faq__answer p + p {
+  margin-top: 2px;
 }
 
 .footer {
@@ -740,7 +790,8 @@ p {
   .hero__bottom,
   .benefit__body,
   .access,
-  .line-panel {
+  .line-panel,
+  .faq {
     flex-direction: column;
     align-items: stretch;
   }
@@ -779,6 +830,11 @@ p {
 
   .access .section-label {
     width: 100%;
+  }
+
+  .faq .section-label {
+    width: 100%;
+    flex-basis: auto;
   }
 
   .line-panel .button {
@@ -880,6 +936,22 @@ p {
     min-height: 52px;
     border-radius: 12px;
     padding: 0 18px;
+    font-size: 14px;
+  }
+
+  .faq {
+    gap: 24px;
+  }
+
+  .faq__question {
+    min-height: 64px;
+    padding: 18px 0;
+    font-size: 15px;
+  }
+
+  .faq__answer {
+    padding-right: 0;
+    padding-bottom: 18px;
     font-size: 14px;
   }
 

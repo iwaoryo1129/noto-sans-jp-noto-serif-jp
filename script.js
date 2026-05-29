@@ -1,4 +1,16 @@
 (() => {
+  document.querySelectorAll(".faq__list").forEach((list) => {
+    list.querySelectorAll(".faq__item").forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (!item.open) return;
+
+        list.querySelectorAll(".faq__item[open]").forEach((openItem) => {
+          if (openItem !== item) openItem.removeAttribute("open");
+        });
+      });
+    });
+  });
+
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduceMotion) return;
 
@@ -14,7 +26,6 @@
     ".map",
     ".access",
     ".sns",
-    ".faq",
     ".footer"
   ];
 
