@@ -311,7 +311,7 @@ p {
   width: min(54vw, 778px);
   aspect-ratio: 777.5 / 583.125;
   border-radius: 4px;
-  background: linear-gradient(90deg, rgb(0 0 0 / 20%), rgb(102 102 102 / 0%)), url("./assets/about.jpg") center / cover;
+  background: linear-gradient(90deg, rgb(0 0 0 / 20%), rgb(102 102 102 / 0%)), url("./assets/about-measurement.jpg") center / cover;
   transform: translate3d(0, var(--parallax-y, 0), 0);
   will-change: transform;
 }
