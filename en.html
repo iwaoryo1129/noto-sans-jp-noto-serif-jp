@@ -10,6 +10,30 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="lang-en">
+    <header class="site-header" aria-label="Sticky header">
+      <a class="site-header__logo" href="./en.html" aria-label="nishikawa">
+        <img src="./assets/header-logo-mark.svg" alt="" />
+        <img src="./assets/header-logo-word.svg" alt="nishikawa" />
+      </a>
+      <div class="site-header__actions">
+        <a class="site-header__line" href="#">
+          <span>Receive updates on LINE</span>
+          <img src="./assets/line.svg" alt="" />
+        </a>
+        <details class="language-switch site-header__language">
+          <summary class="language" aria-label="language">
+            <img src="./assets/globe.svg" alt="" />
+            <span>English</span>
+            <img src="./assets/caret-down.svg" alt="" />
+          </summary>
+          <div class="language-switch__menu">
+            <a href="./index.html">日本語</a>
+            <a href="./zh-tw.html">繁體中文</a>
+            <a href="./en.html" aria-current="page">English</a>
+          </div>
+        </details>
+      </div>
+    </header>
     <main class="page">
       <section class="hero shell">
         <div class="hero__panel">

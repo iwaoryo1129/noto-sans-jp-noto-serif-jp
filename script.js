@@ -1,4 +1,17 @@
 (() => {
+  const siteHeader = document.querySelector(".site-header");
+  const hero = document.querySelector(".hero");
+
+  if (siteHeader && hero) {
+    const updateHeader = () => {
+      siteHeader.classList.toggle("is-visible", hero.getBoundingClientRect().bottom <= 0);
+    };
+
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    window.addEventListener("resize", updateHeader);
+  }
+
   document.querySelectorAll(".faq__list").forEach((list) => {
     list.querySelectorAll(".faq__item").forEach((item) => {
       item.addEventListener("toggle", () => {
