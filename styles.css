@@ -68,6 +68,8 @@ a {
   height: 113%;
   max-width: none;
   object-fit: cover;
+  transform: translate3d(0, var(--parallax-y, 0), 0) scale(1.015);
+  transform-origin: center;
 }
 
 .hero__header,
@@ -293,6 +295,8 @@ p {
   left: 17.4%;
   width: 27.8%;
   min-width: 220px;
+  transform: translate3d(0, var(--parallax-y, 0), 0);
+  will-change: transform;
 }
 
 .about__photo {
@@ -303,6 +307,8 @@ p {
   aspect-ratio: 777.5 / 583.125;
   border-radius: 4px;
   background: linear-gradient(90deg, rgb(0 0 0 / 20%), rgb(102 102 102 / 0%)), url("./assets/about.jpg") center / cover;
+  transform: translate3d(0, var(--parallax-y, 0), 0);
+  will-change: transform;
 }
 
 .about__copy {
@@ -347,6 +353,8 @@ p {
   border-radius: 4px;
   padding: clamp(24px, 2.78vw, 40px);
   background: linear-gradient(rgb(0 0 0 / 40%), rgb(0 0 0 / 40%)), url("./assets/benefit.jpg") center / cover;
+  transform: translate3d(0, var(--parallax-y, 0), 0);
+  will-change: transform;
 }
 
 .benefit__card .section-label {
@@ -634,6 +642,88 @@ p {
   margin: 0;
   font-size: 14px;
   line-height: 1.4;
+}
+
+.hero__header,
+.hero__bottom {
+  animation: heroContentIn 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero__bottom {
+  animation-delay: 140ms;
+}
+
+.motion-ready .reveal {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 700ms ease,
+    transform 850ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.motion-ready .reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, var(--parallax-y, 0), 0);
+}
+
+.motion-ready .menu-card {
+  transition:
+    opacity 700ms ease,
+    transform 850ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 300ms ease;
+}
+
+.motion-ready .menu-card:hover {
+  filter: brightness(1.06);
+  transform: translate3d(0, -4px, 0);
+}
+
+.motion-ready .button,
+.motion-ready .benefit__button-image {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    filter 220ms ease;
+}
+
+.motion-ready .button:hover,
+.motion-ready .benefit__button-image:hover {
+  filter: brightness(1.04);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgb(0 0 0 / 18%);
+}
+
+@keyframes heroContentIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero__image,
+  .ornament,
+  .about__photo,
+  .benefit__card,
+  .motion-ready .reveal,
+  .motion-ready .reveal.is-visible {
+    transform: none !important;
+  }
 }
 
 @media (max-width: 900px) {
