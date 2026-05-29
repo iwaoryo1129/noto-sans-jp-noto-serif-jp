@@ -44,6 +44,11 @@ a {
   padding: 16px;
 }
 
+.hero.shell {
+  display: flex;
+  min-height: 100svh;
+}
+
 .section-pad {
   padding: clamp(64px, 11.1vw, 160px) var(--pad) clamp(48px, 5.56vw, 80px);
 }
@@ -51,8 +56,8 @@ a {
 .hero__panel {
   position: relative;
   display: flex;
-  min-height: min(61.1vw, 880px);
-  aspect-ratio: 1440 / 880;
+  min-height: calc(100svh - 32px);
+  width: 100%;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
@@ -728,8 +733,7 @@ p {
 
 @media (max-width: 900px) {
   .hero__panel {
-    min-height: 720px;
-    aspect-ratio: auto;
+    min-height: calc(100svh - 32px);
   }
 
   .hero__header,
@@ -793,7 +797,7 @@ p {
   }
 
   .hero__panel {
-    min-height: 812px;
+    min-height: calc(100svh - 16px);
     padding: 18px;
   }
 
@@ -831,9 +835,9 @@ p {
     position: absolute;
     top: 18px;
     right: auto;
-    left: min(210px, calc(100vw - 180px));
-    width: 160px;
-    max-width: 160px;
+    left: 120px;
+    width: 210px;
+    max-width: calc(100vw - 150px);
     margin-left: auto;
     gap: 8px;
   }
