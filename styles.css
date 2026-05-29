@@ -137,7 +137,7 @@ a {
   right: 0;
   z-index: 5;
   display: none;
-  min-width: 120px;
+  min-width: 136px;
   overflow: hidden;
   border: 1px solid rgb(216 27 39 / 24%);
   border-radius: 8px;
@@ -312,6 +312,10 @@ p {
   padding-top: clamp(160px, 16.7vw, 240px);
 }
 
+.lang-en .about__copy {
+  width: min(100%, 560px);
+}
+
 .about h2,
 .benefit h2 {
   margin-bottom: 24px;
@@ -319,6 +323,10 @@ p {
   font-size: clamp(30px, 3.2vw, 46px);
   font-weight: 400;
   line-height: 1.4;
+}
+
+.lang-en .about h2 {
+  font-size: clamp(30px, 2.9vw, 42px);
 }
 
 .about p {
@@ -392,7 +400,7 @@ p {
   box-shadow: 0 0 10px rgb(0 0 0 / 15%);
   font-size: 16px;
   line-height: 1.4;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .benefit__button-image--zh img {
@@ -744,6 +752,12 @@ p {
     max-width: 100%;
     font-size: 26px;
     line-height: 1.45;
+  }
+
+  .lang-en .hero h1 {
+    max-width: 92%;
+    overflow-wrap: break-word;
+    font-size: 24px;
   }
 
   .open-date {
