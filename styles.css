@@ -118,6 +118,51 @@ a {
   white-space: nowrap;
 }
 
+.language-switch {
+  position: relative;
+}
+
+.language-switch summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.language-switch summary::-webkit-details-marker {
+  display: none;
+}
+
+.language-switch__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 5;
+  display: none;
+  min-width: 120px;
+  overflow: hidden;
+  border: 1px solid rgb(216 27 39 / 24%);
+  border-radius: 8px;
+  color: var(--red);
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 10%);
+}
+
+.language-switch[open] .language-switch__menu {
+  display: block;
+}
+
+.language-switch__menu a {
+  display: block;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.language-switch__menu a[aria-current="page"] {
+  font-weight: 700;
+  background: rgb(216 27 39 / 8%);
+}
+
 .language img:first-child {
   width: 24px;
   height: 24px;
@@ -330,6 +375,36 @@ p {
 .benefit__button-image img {
   width: 100%;
   height: auto;
+}
+
+.benefit__button-image--zh {
+  display: flex;
+  width: min(100%, 344px);
+  min-height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid #06c755;
+  border-radius: 16px;
+  padding: 0 24px;
+  color: var(--white);
+  background: #06c755;
+  box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+  font-size: 16px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.benefit__button-image--zh img {
+  display: none;
+}
+
+.benefit__button-image--zh::after {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  background: url("./assets/line.svg") center / contain no-repeat;
+  content: "";
 }
 
 .note {
@@ -657,9 +732,10 @@ p {
   .hero__meta {
     position: absolute;
     top: 18px;
-    right: 18px;
-    width: 178px;
-    max-width: 178px;
+    right: auto;
+    left: min(210px, calc(100vw - 180px));
+    width: 160px;
+    max-width: 160px;
     margin-left: auto;
     gap: 8px;
   }
@@ -671,8 +747,8 @@ p {
   }
 
   .open-date {
-    width: 150px;
-    max-width: 150px;
+    width: 100%;
+    max-width: 100%;
     overflow-wrap: anywhere;
     word-break: break-all;
     font-size: 11px;
